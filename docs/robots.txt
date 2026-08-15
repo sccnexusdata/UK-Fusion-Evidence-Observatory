@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sccnexusdata.github.io/UK-Fusion-Evidence-Observatory/sitemap.xml

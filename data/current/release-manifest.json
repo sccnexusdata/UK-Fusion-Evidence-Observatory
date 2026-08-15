@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-14T00:00:00Z",
+  "record_count": 1,
+  "files": {
+    "evidence.json": {
+      "sha256": "0cc86ccf3c016a7ab85c719d3a40f9a9b46b7da69a89eef9f4ed3cbb78138c20"
+    },
+    "sources.json": {
+      "sha256": "0da9cb3ae66dd96d4ba454f14f4a72f72145ea498d4f1ed34c4d1436f985cb2f"
+    }
+  }
+}

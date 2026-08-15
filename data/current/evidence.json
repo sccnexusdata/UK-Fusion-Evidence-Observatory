@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-14T00:00:00Z",
+  "records": [
+    {
+      "record_id": "EVD-000001",
+      "title": "UK Fusion Strategy published",
+      "summary": "The UK government published a national fusion strategy describing STEP as its flagship integrated prototype programme.",
+      "evidence_type": "programme-policy",
+      "geography": "United Kingdom",
+      "published_date": "2026-03-16",
+      "source_url": "https://www.gov.uk/government/publications/uk-fusion-strategy-2026/a-new-energy-revolution-the-uks-plan-for-delivering-fusion-energy-accessible-webpage",
+      "source_publisher": "UK Government",
+      "source_class": "primary-government",
+      "licence": "Open Government Licence v3.0",
+      "retrieved_at": "2026-08-14",
+      "verification_status": "source-verified",
+      "corroborating_sources": [],
+      "confidence_class": "high",
+      "limitations": [
+        "Publication of a strategy is evidence of policy intent, not evidence that technical or delivery targets have been achieved."
+      ]
+    }
+  ]
+}

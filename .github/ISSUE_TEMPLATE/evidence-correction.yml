@@ -1,0 +1,39 @@
+name: Evidence correction
+description: Propose a sourced correction to a published evidence record
+title: "Correction: EVD-"
+labels: ["evidence-correction"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Evidence record ID
+      placeholder: EVD-000001
+    validations:
+      required: true
+  - type: textarea
+    id: disputed
+    attributes:
+      label: Disputed field or wording
+      description: Identify the exact field or statement; do not include private correspondence or personal data.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Supporting source
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have not included credentials, private correspondence or personal data.
+          required: true

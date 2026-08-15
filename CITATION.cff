@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this evidence collection, cite the repository release and the original evidence sources."
+title: "UK Fusion Evidence Observatory"
+type: dataset
+version: 2026.08.0
+date-released: 2026-08-14
+license: MIT
+repository-code: "https://github.com/sccnexusdata/UK-Fusion-Evidence-Observatory"

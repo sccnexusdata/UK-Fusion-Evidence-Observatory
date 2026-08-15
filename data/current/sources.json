@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-14T00:00:00Z",
+  "sources": [
+    {
+      "source_url": "https://www.gov.uk/government/publications/uk-fusion-strategy-2026/a-new-energy-revolution-the-uks-plan-for-delivering-fusion-energy-accessible-webpage",
+      "source_publisher": "UK Government",
+      "source_class": "primary-government",
+      "licence": "Open Government Licence v3.0",
+      "retrieved_at": "2026-08-14"
+    }
+  ]
+}
