@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Methodology for the UK Fusion Evidence Observatory.">
+  <meta name="description" content="Methodology for the UK Fusion Evidence Observatory, including provenance controls, publication firewall and prospective performance-gate rules.">
   <title>Methodology · UK Fusion Evidence Observatory</title>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -16,6 +16,11 @@
     <ol><li>Legislation, official datasets and primary programme documents.</li><li>Peer-reviewed research and recognised scientific repositories.</li><li>Contracts, company filings, patents and original organisational publications.</li><li>Attributed secondary reporting where primary evidence is unavailable.</li></ol>
     <h2>Publication controls</h2>
     <p>Collection and internal review take place in a private repository. Only approved fields and records can enter a signed-off bundle. This public repository independently checks its schema, source register, record count and SHA-256 manifest before deployment.</p>
+    <p>The review pipeline fails closed: automated or assisted annotation cannot itself establish a scientific claim or publication approval. A recorded human decision is required before those states can be represented as verified.</p>
+    <h2>Prospective performance gate</h2>
+    <p>The architectural firewall is a safety control, not evidence that the review system performs well. The Observatory therefore does not claim reviewer accuracy, diagnostic interpretation accuracy or scientific-validation performance merely because the pipeline rejects unsafe states.</p>
+    <p>Before any quantitative performance claim is published, a bounded pilot protocol must be frozen in advance. That protocol must state: the number and selection logic for test cases; the case-mix and difficulty criteria; the human-reference process; the agreement metric; the provenance-completeness metric; the allowable unexplained-conflict rate; and explicit stop/review thresholds. The thresholds must be committed before outcomes are inspected and may not be relaxed after the pilot to manufacture a pass.</p>
+    <p><strong>Current status:</strong> no public quantitative performance gate has yet been completed. Until one is prospectively defined and run, Fusion Evidence should be described as <em>architecturally controlled and provenance-led</em>, not as a validated high-accuracy scientific classifier.</p>
     <h2>Interpretation</h2>
     <p>A high confidence class means the stated record is well supported by its source. It does not mean that a forecast will happen. Programme commitments, experimental measurements and commercial outcomes remain separate evidence types.</p>
   </main>
