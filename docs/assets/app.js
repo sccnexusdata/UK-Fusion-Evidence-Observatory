@@ -1,40 +1,16 @@
 "use strict";
+document.documentElement.classList.add("js");
 
-const escapeText = (value) => String(value ?? "");
+const qs=(s,c=document)=>c.querySelector(s);const qsa=(s,c=document)=>[...c.querySelectorAll(s)];
+const safe=v=>String(v??"");
+const prettyDate=value=>{if(!value)return"—";const d=new Date(value);return Number.isNaN(d.valueOf())?safe(value):new Intl.DateTimeFormat("en-GB",{day:"2-digit",month:"short",year:"numeric"}).format(d)};
 
-async function loadEvidence() {
-  const status = document.getElementById("release-status");
-  const list = document.getElementById("evidence-list");
-  try {
-    const response = await fetch("data/current/evidence.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const documentData = await response.json();
-    const records = Array.isArray(documentData.records) ? documentData.records : [];
-    status.textContent = `${records.length} record${records.length === 1 ? "" : "s"} · generated ${escapeText(documentData.generated_at)}`;
-    for (const record of records) {
-      const article = document.createElement("article");
-      article.className = "record";
-      const meta = document.createElement("p");
-      meta.className = "record-meta";
-      meta.textContent = `${escapeText(record.record_id)} · ${escapeText(record.evidence_type)} · ${escapeText(record.published_date)}`;
-      const title = document.createElement("h3");
-      title.textContent = escapeText(record.title);
-      const summary = document.createElement("p");
-      summary.textContent = escapeText(record.summary);
-      const limitation = document.createElement("p");
-      limitation.className = "limitation";
-      limitation.textContent = `Limitation: ${escapeText((record.limitations || [])[0])}`;
-      const link = document.createElement("a");
-      link.href = record.source_url;
-      link.rel = "noopener noreferrer";
-      link.textContent = `View source · ${escapeText(record.source_publisher)}`;
-      article.append(meta, title, summary, limitation, link);
-      list.append(article);
-    }
-  } catch (error) {
-    status.textContent = "Evidence could not be loaded.";
-    list.textContent = "The release data are temporarily unavailable. Please use the machine-readable evidence link in the footer.";
-  }
-}
+function setupNavigation(){const button=qs(".menu-toggle");const links=qs(".nav-links");if(button&&links){const close=()=>{button.setAttribute("aria-expanded","false");links.classList.remove("open");document.body.classList.remove("menu-open")};button.addEventListener("click",()=>{const open=button.getAttribute("aria-expanded")!=="true";button.setAttribute("aria-expanded",String(open));links.classList.toggle("open",open);document.body.classList.toggle("menu-open",open)});qsa("a",links).forEach(a=>a.addEventListener("click",close));document.addEventListener("keydown",e=>{if(e.key==="Escape")close()})}const header=qs("[data-header]");if(header){const update=()=>header.classList.toggle("scrolled",window.scrollY>12);update();window.addEventListener("scroll",update,{passive:true})}}
 
-loadEvidence();
+function setupReveal(){const items=qsa(".reveal");if(!items.length)return;if(matchMedia("(prefers-reduced-motion: reduce)").matches){items.forEach(el=>el.classList.add("visible"));return}const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.12});items.forEach(el=>observer.observe(el))}
+
+function createRecord(record){const article=document.createElement("article");article.className="record";const meta=document.createElement("div");const metaP=document.createElement("p");metaP.className="record-meta";metaP.textContent=`${safe(record.record_id)} · ${safe(record.evidence_type)}`;const date=document.createElement("p");date.textContent=prettyDate(record.published_date);meta.append(metaP,date);const body=document.createElement("div");const title=document.createElement("h3");title.textContent=safe(record.title);const summary=document.createElement("p");summary.textContent=safe(record.summary);body.append(title,summary);const limitationText=Array.isArray(record.limitations)&&record.limitations.length?record.limitations[0]:"No limitation supplied.";const limitation=document.createElement("p");limitation.className="limitation";limitation.textContent=`Limitation: ${safe(limitationText)}`;body.append(limitation);const aside=document.createElement("div");const verification=document.createElement("p");verification.className="record-meta";verification.textContent=safe(record.verification_status||"status unavailable");const link=document.createElement("a");link.className="button button-quiet record-link";link.href=safe(record.source_url);link.rel="noopener noreferrer";link.textContent=`Source · ${safe(record.source_publisher)}`;aside.append(verification,link);article.append(meta,body,aside);article.dataset.search=[record.title,record.summary,record.evidence_type,record.source_publisher,record.record_id].map(safe).join(" ").toLowerCase();return article}
+
+async function loadPublicRelease(){const list=qs("#evidence-list");const status=qs("#release-status");if(!list&&!qs("#metric-records"))return;try{const [evidenceResponse,sourcesResponse,manifestResponse]=await Promise.all([fetch("data/current/evidence.json",{cache:"no-store"}),fetch("data/current/sources.json",{cache:"no-store"}),fetch("data/current/release-manifest.json",{cache:"no-store"})]);if(!evidenceResponse.ok||!sourcesResponse.ok||!manifestResponse.ok)throw new Error("release fetch failed");const [evidence,sources,manifest]=await Promise.all([evidenceResponse.json(),sourcesResponse.json(),manifestResponse.json()]);const records=Array.isArray(evidence.records)?evidence.records:[];const sourceRows=Array.isArray(sources.sources)?sources.sources:[];const recordMetric=qs("#metric-records"),sourceMetric=qs("#metric-sources"),integrityMetric=qs("#metric-integrity"),dateMetric=qs("#metric-date");if(recordMetric)recordMetric.textContent=String(records.length);if(sourceMetric)sourceMetric.textContent=String(sourceRows.length);if(integrityMetric)integrityMetric.textContent=manifest&&manifest.files?"Manifested":"Unavailable";if(dateMetric)dateMetric.textContent=prettyDate(evidence.generated_at);if(status)status.textContent=`${records.length} validated record${records.length===1?"":"s"} · generated ${prettyDate(evidence.generated_at)}`;if(list){list.replaceChildren(...records.map(createRecord));const search=qs("#evidence-search");if(search){search.addEventListener("input",()=>{const term=search.value.trim().toLowerCase();qsa(".record",list).forEach(card=>{card.hidden=Boolean(term)&&!card.dataset.search.includes(term)})})}}const releaseCount=qs("#explore-record-count");if(releaseCount)releaseCount.textContent=String(records.length);const typeCount=qs("#explore-type-count");if(typeCount)typeCount.textContent=String(new Set(records.map(r=>r.evidence_type).filter(Boolean)).size);const publisherCount=qs("#explore-publisher-count");if(publisherCount)publisherCount.textContent=String(new Set(records.map(r=>r.source_publisher).filter(Boolean)).size)}catch(error){if(status)status.textContent="Validated release could not be loaded.";if(list)list.textContent="The public release data are temporarily unavailable. Use the machine-readable links in the footer.";const integrity=qs("#metric-integrity");if(integrity)integrity.textContent="Unavailable"}}
+
+setupNavigation();setupReveal();loadPublicRelease();
