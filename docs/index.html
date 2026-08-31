@@ -1,59 +1,132 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" data-theme="auto">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Independent, evidence-led monitoring of UK fusion science, delivery, industry and environmental evidence.">
-  <title>UK Fusion Evidence Observatory</title>
+  <meta name="description" content="Independent, provenance-first monitoring of UK fusion science, programme delivery, industry and environmental evidence.">
+  <meta name="theme-color" content="#071315">
+  <title>UK Fusion Evidence Observatory · Evidence before conclusion</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/app.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to evidence</a>
-  <header class="hero">
-    <nav aria-label="Primary navigation">
-      <a class="brand" href="index.html">UK Fusion Evidence Observatory</a>
-      <div>
-        <a href="#evidence">Evidence</a>
+  <header class="site-header" data-header>
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="UK Fusion Evidence Observatory home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span><strong>Fusion Evidence</strong><small>UK Observatory</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span></span><span></span><span></span><span class="sr-only">Menu</span></button>
+      <div class="nav-links" id="primary-links">
+        <a href="#pulse">Observatory</a>
+        <a href="explore.html">Explore evidence</a>
         <a href="methodology.html">Methodology</a>
         <a href="limitations.html">Limitations</a>
+        <a class="nav-cta" href="https://www.sccnexus.co.uk/" rel="noopener">SCC Nexus ↗</a>
       </div>
     </nav>
-    <div class="hero-copy">
-      <p class="eyebrow">Independent · evidence-led · provenance-first</p>
-      <h1>Following the evidence from fusion ambition to delivery</h1>
-      <p class="lede">A public record of UK fusion policy, science, industry, funding and environmental evidence—with announcements kept separate from achieved outcomes.</p>
-    </div>
   </header>
+
   <main id="main">
-    <section class="principles" aria-labelledby="principles-title">
-      <h2 id="principles-title">What this observatory tests</h2>
-      <div class="grid">
-        <article><h3>Delivery</h3><p>Are dated programme commitments turning into evidenced milestones?</p></article>
-        <article><h3>Capability</h3><p>Is a durable UK research, skills and industrial base being created?</p></article>
-        <article><h3>Responsibility</h3><p>Are environmental, fuel-cycle, waste and public-interest questions addressed?</p></article>
+    <section class="hero-v2" aria-labelledby="hero-title">
+      <div class="field" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="core"></div>
+      </div>
+      <div class="hero-grid shell">
+        <div class="hero-copy-v2 reveal">
+          <p class="eyebrow"><span class="status-dot"></span> Independent · provenance-first · public</p>
+          <h1 id="hero-title">Fusion needs <span class="kinetic">evidence</span>, not just ambition.</h1>
+          <p class="lede">A public observatory tracking UK fusion policy, science, delivery, industry and environmental evidence—while keeping announcements separate from achieved outcomes.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="explore.html">Explore validated evidence <span aria-hidden="true">→</span></a>
+            <a class="button button-quiet" href="methodology.html">See how verification works</a>
+          </div>
+          <p class="hero-note">Architecturally controlled and provenance-led. No quantitative scientific-performance validation is currently claimed.</p>
+        </div>
+        <aside class="hero-console reveal" aria-label="Publication control status">
+          <div class="console-top"><span>PUBLICATION FIREWALL</span><span class="live-pill">ACTIVE</span></div>
+          <div class="console-path" aria-label="Evidence publication path">
+            <div><span>01</span><strong>Discover</strong><small>candidate material</small></div>
+            <div><span>02</span><strong>Corroborate</strong><small>identity + source</small></div>
+            <div><span>03</span><strong>Human review</strong><small>decision required</small></div>
+            <div class="active"><span>04</span><strong>Publish</strong><small>validated bundle only</small></div>
+          </div>
+          <p>Automated or assisted annotation cannot independently assert scientific verification or publication approval.</p>
+        </aside>
+      </div>
+      <a class="scroll-cue" href="#pulse">Scroll to Observatory <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section id="pulse" class="pulse-section section-pad">
+      <div class="shell">
+        <div class="section-intro reveal"><p class="eyebrow">Observatory pulse</p><h2>What is actually public now.</h2><p>The interface reads the same validated release staged by the repository build. Zeroes and small numbers are shown honestly rather than disguised as progress.</p></div>
+        <div class="metric-grid" aria-live="polite">
+          <article class="metric-card"><span class="metric-label">Validated records</span><strong class="metric-value" id="metric-records">—</strong><small>current public release</small></article>
+          <article class="metric-card"><span class="metric-label">Registered sources</span><strong class="metric-value" id="metric-sources">—</strong><small>in current source register</small></article>
+          <article class="metric-card"><span class="metric-label">Release integrity</span><strong class="metric-value metric-word" id="metric-integrity">Checking</strong><small>manifest available</small></article>
+          <article class="metric-card"><span class="metric-label">Generated</span><strong class="metric-value metric-date" id="metric-date">—</strong><small>UTC validated bundle</small></article>
+        </div>
       </div>
     </section>
-    <section class="principles" aria-labelledby="validation-title">
-      <h2 id="validation-title">Control status</h2>
-      <div class="grid">
-        <article><h3>Fail-closed publication</h3><p>Automated or assisted annotation cannot independently assert scientific verification or publication approval. Human review remains mandatory.</p></article>
-        <article><h3>Performance not yet claimed</h3><p>The publication firewall is a structural safety control, not a claim of reviewer or classifier accuracy. No quantitative scientific-performance validation is currently asserted.</p></article>
-        <article><h3>Next validation step</h3><p>Any future performance pilot must freeze its case selection, reference process, metrics and stop/review thresholds before outcomes are inspected. See the <a href="methodology.html">methodology</a>.</p></article>
+
+    <section class="journey section-pad" aria-labelledby="journey-title">
+      <div class="shell">
+        <div class="section-intro reveal"><p class="eyebrow">From claim to record</p><h2 id="journey-title">The distance between saying and knowing.</h2></div>
+        <div class="journey-track reveal">
+          <article><span>Announcement</span><h3>Someone says it will happen.</h3><p>Policy, programme or commercial intent is recorded as intent.</p></article>
+          <article><span>Delivery evidence</span><h3>Something observable happens.</h3><p>Contracts, facilities, experiments, measurements or dated milestones appear.</p></article>
+          <article><span>Corroboration</span><h3>The source and identity hold up.</h3><p>Primary evidence and stable identifiers take precedence over fuzzy matching.</p></article>
+          <article><span>Publication</span><h3>A bounded claim survives review.</h3><p>The public record keeps its source, classification and explicit limitation attached.</p></article>
+        </div>
       </div>
     </section>
-    <section id="evidence" class="evidence" aria-labelledby="evidence-title">
-      <div class="section-heading">
-        <div><p class="eyebrow">Current validated release</p><h2 id="evidence-title">Evidence records</h2></div>
-        <p id="release-status" role="status">Loading validated evidence…</p>
+
+    <section class="landscape section-pad" aria-labelledby="landscape-title">
+      <div class="shell landscape-grid">
+        <div class="section-intro reveal"><p class="eyebrow">Evidence landscape</p><h2 id="landscape-title">One system. Different kinds of truth.</h2><p>Policy intent, experimental measurement, industrial capability and environmental evidence should never collapse into a single “fusion progress” score.</p><a class="text-link" href="explore.html">Open the evidence explorer →</a></div>
+        <div class="domain-map reveal" aria-label="Fusion evidence domains">
+          <article class="domain domain-science"><span>SCIENCE</span><strong>Experiments & diagnostics</strong><small>Measurements are not electricity.</small></article>
+          <article class="domain domain-delivery"><span>DELIVERY</span><strong>STEP & programmes</strong><small>Targets are not milestones.</small></article>
+          <article class="domain domain-industry"><span>INDUSTRY</span><strong>Capability & supply chain</strong><small>Presence is not performance.</small></article>
+          <article class="domain domain-responsibility"><span>RESPONSIBILITY</span><strong>Fuel, waste & environment</strong><small>Assumptions remain visible.</small></article>
+        </div>
       </div>
-      <div id="evidence-list" class="records"></div>
-      <noscript><p>JavaScript is required to display the evidence records. The JSON remains available in <a href="data/current/evidence.json">machine-readable form</a>.</p></noscript>
+    </section>
+
+    <section class="principles-v2 section-pad" aria-labelledby="principles-title">
+      <div class="shell">
+        <div class="section-intro reveal"><p class="eyebrow">Non-negotiable rules</p><h2 id="principles-title">Designed to resist confident nonsense.</h2></div>
+        <div class="rule-grid reveal">
+          <article><span>01</span><h3>Discovery ≠ evidence</h3><p>Finding a record makes it a candidate, not a conclusion.</p></article>
+          <article><span>02</span><h3>Identity ≠ claim truth</h3><p>Correctly matching an organisation or paper does not validate what it says.</p></article>
+          <article><span>03</span><h3>ML output ≠ evidence</h3><p>Automation can assist review but cannot manufacture scientific verification.</p></article>
+          <article><span>04</span><h3>Centrality ≠ importance</h3><p>Network prominence is descriptive, never a substitute for scientific significance.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="evidence" class="evidence-v2 section-pad" aria-labelledby="evidence-title">
+      <div class="shell">
+        <div class="section-heading reveal"><div><p class="eyebrow">Current validated release</p><h2 id="evidence-title">Evidence records</h2></div><p id="release-status" class="release-status" role="status">Loading validated evidence…</p></div>
+        <div class="evidence-toolbar reveal"><label for="evidence-search">Search current release</label><input id="evidence-search" type="search" placeholder="Search title, type or publisher…" autocomplete="off"></div>
+        <div id="evidence-list" class="records records-v2"></div>
+        <noscript><p>JavaScript is required to display evidence cards. The JSON remains available in <a href="data/current/evidence.json">machine-readable form</a>.</p></noscript>
+      </div>
+    </section>
+
+    <section class="limits-callout section-pad" aria-labelledby="limits-title">
+      <div class="shell limits-grid reveal"><div><p class="eyebrow">What we cannot yet say</p><h2 id="limits-title">Restraint is a feature.</h2></div><div><p>The initial release demonstrates publication controls; it is not a complete sector census. A published strategy proves that policy exists—not that engineering, commercial or delivery targets have been achieved.</p><a class="button button-quiet" href="limitations.html">Read all limitations</a></div></div>
     </section>
   </main>
-  <footer>
-    <p>Independent and not affiliated with UKAEA, UK Fusion Energy, STEP or any commercial fusion company.</p>
-    <p><a href="data/current/evidence.json">Evidence JSON</a> · <a href="data/current/sources.json">Source register</a> · <a href="limitations.html">Limitations</a></p>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span><strong>Fusion Evidence</strong><small>UK Observatory</small></span></a><p>An independent SCC Nexus evidence project. Search · Corroborate · Communicate.</p></div>
+      <div><strong>Evidence</strong><a href="explore.html">Explorer</a><a href="data/current/evidence.json">Evidence JSON</a><a href="data/current/sources.json">Source register</a></div>
+      <div><strong>Governance</strong><a href="methodology.html">Methodology</a><a href="limitations.html">Limitations</a><a href="https://github.com/sccnexusdata/UK-Fusion-Evidence-Observatory" rel="noopener">GitHub repository ↗</a></div>
+      <div><strong>SCC Nexus</strong><a href="https://www.sccnexus.co.uk/" rel="noopener">sccnexus.co.uk ↗</a><p>Independent and not affiliated with UKAEA, UK Fusion Energy, STEP or any commercial fusion company.</p></div>
+    </div>
   </footer>
 </body>
 </html>
