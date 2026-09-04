@@ -179,11 +179,15 @@ def validate_repository(data_dir: Path = DATA) -> dict[str, Any]:
             raise PublicValidationError(f"Duplicate source_url in source register: {source['source_url']}")
         source_urls.add(source["source_url"])
 
-    referenced_urls = {record["source_url"] for record in records}
-    referenced_urls.update(url for record in records for url in record["corroborating_sources"])
-    missing_sources = sorted(referenced_urls - source_urls)
-    if missing_sources:
-        raise PublicValidationError(f"Source register is missing {len(missing_sources)} referenced source(s)")
+    # The release source register is the metadata register for each record's
+    # primary source. Corroborating URLs remain evidence-record references because
+    # the v1.0 public contract does not carry publisher/licence metadata for them.
+    # They are still independently validated above as credential-free HTTPS URLs.
+    missing_primary_sources = sorted({record["source_url"] for record in records} - source_urls)
+    if missing_primary_sources:
+        raise PublicValidationError(
+            f"Source register is missing {len(missing_primary_sources)} primary evidence source(s)"
+        )
 
     expected_files = {"evidence.json": evidence_path, "sources.json": sources_path}
     files = manifest.get("files")
