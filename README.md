@@ -1,8 +1,12 @@
 # UK Fusion Evidence Observatory
 
+[![SCC Nexus](https://sccnexus.co.uk/assets/brand/scc-nexus-wordmark.webp)](https://sccnexus.co.uk/)
+
 An independent, evidence-led record of UK fusion science, programme delivery, industry, funding and environmental evidence.
 
 This is the **public** repository. It accepts only validated publication bundles produced by the private `UK-Fusion-Evidence-Engine` and independently checks them before deployment.
+
+**SCC Nexus public-benefit evidence project · Search · Corroborate · Communicate.**
 
 ## Scope and limitations
 
@@ -121,6 +125,8 @@ tests/                        Regression and security tests
 ## Corrections
 
 Open an evidence-correction issue containing the record ID, disputed field, supporting primary source and requested change. Do not include private correspondence or personal data. A corrected data release should supersede rather than silently conceal a material change.
+
+Corrections and collaboration may also be directed to **hello@sccnexus.co.uk**.
 
 ## Licence
 
