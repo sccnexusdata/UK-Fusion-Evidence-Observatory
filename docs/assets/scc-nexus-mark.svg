@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">SCC Nexus mark</title><desc id="desc">An abstract interconnected nexus of five linked nodes.</desc>
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#5af0c7"/><stop offset=".52" stop-color="#59c7ff"/><stop offset="1" stop-color="#9d86ff"/></linearGradient></defs>
+  <rect width="120" height="120" rx="28" fill="#071522"/>
+  <path d="M31 70 55 27l34 18-2 39-39 10Z" fill="none" stroke="url(#g)" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M31 70 87 84M55 27 48 94M89 45 31 70" fill="none" stroke="#dff8ef" stroke-opacity=".48" stroke-width="2"/>
+  <circle cx="31" cy="70" r="7" fill="#5af0c7"/><circle cx="55" cy="27" r="7" fill="#59c7ff"/><circle cx="89" cy="45" r="7" fill="#9d86ff"/><circle cx="87" cy="84" r="7" fill="#f4b860"/><circle cx="48" cy="94" r="7" fill="#f893c7"/>
+</svg>
