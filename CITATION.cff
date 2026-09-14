@@ -4,5 +4,11 @@ title: "UK Fusion Evidence Observatory"
 type: dataset
 version: 2026.08.0
 date-released: 2026-08-14
+authors:
+  - family-names: "Chowen"
+    given-names: "Scott"
+    affiliation: "SCC Nexus Limited"
 license: MIT
 repository-code: "https://github.com/sccnexusdata/UK-Fusion-Evidence-Observatory"
+url: "https://sccnexusdata.github.io/UK-Fusion-Evidence-Observatory/"
+abstract: "Public-benefit fusion evidence observatory operated and published by SCC Nexus Limited (Company No. 17458303)."
