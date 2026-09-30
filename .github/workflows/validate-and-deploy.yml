@@ -28,13 +28,15 @@ jobs:
         run: python scripts/validate_public_repo.py
       - name: Run regression tests
         run: python -m unittest discover -s tests -v
-      - name: Build static site
+      - name: Build full validated site for release assurance
         run: python scripts/build_site.py
+      - name: Build lightweight GitHub Pages mirror
+        run: python scripts/build_github_mirror.py
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v5
         with:
-          path: build/site
+          path: build/github-mirror
 
   deploy:
     if: github.event_name != 'pull_request'
@@ -48,6 +50,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy lightweight mirror to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
