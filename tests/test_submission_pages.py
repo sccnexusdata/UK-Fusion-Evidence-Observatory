@@ -1,7 +1,8 @@
 """Submission page security and staging checks."""
+import subprocess
+import sys
 import unittest
 from pathlib import Path
-from scripts.build_site import build_site
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -17,9 +18,9 @@ class TestSubmissionPages(unittest.TestCase):
                 for forbidden in ("review-ledger.sqlite3", "outputs/phase-2-1", "mailto:", "github_pat_"):
                     self.assertNotIn(forbidden, text)
     def test_assets_and_staging(self):
-        target = build_site()
+        subprocess.run([sys.executable, "scripts/build_site.py"], cwd=ROOT, check=True, capture_output=True)
         for relative in ("research/index.html", "business/index.html", "assets/submission.css", "assets/submission.js"):
-            self.assertTrue((target / relative).is_file(), relative)
+            self.assertTrue((ROOT / "build" / "site" / relative).is_file(), relative)
 
 if __name__ == "__main__":
     unittest.main()
