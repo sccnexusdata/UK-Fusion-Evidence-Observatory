@@ -1,24 +1,24 @@
 {
-  "name": "UK Fusion Evidence Observatory",
-  "short_name": "Fusion Evidence",
-  "description": "Independent, provenance-first monitoring of UK fusion science, programme delivery, industry and environmental evidence.",
+  "name": "SCC Nexus | UK Fusion Evidence",
+  "short_name": "SCC Fusion",
+  "description": "Independent fusion evidence and research, operated by SCC Nexus Limited.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#061113",
-  "theme_color": "#071315",
+  "background_color": "#f6f9fb",
+  "theme_color": "#142649",
   "icons": [
     {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
+      "src": "/assets/brand/nexus-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "icon-512.png",
-      "sizes": "512x512",
+      "src": "/assets/brand/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
